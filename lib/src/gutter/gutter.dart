@@ -70,8 +70,9 @@ class GutterWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 12, bottom: 12, right: style.margin),
       width: style.showLineNumbers ? gutterWidth : null,
-      child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+      child: Scrollbar(
+        controller: scrollController,
+        thumbVisibility: false,
         child: SingleChildScrollView(
           controller: scrollController,
           child: Table(
