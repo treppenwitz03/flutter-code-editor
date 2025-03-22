@@ -18,11 +18,13 @@ const _foldingColumn = 2;
 class GutterWidget extends StatelessWidget {
   const GutterWidget({
     required this.codeController,
-    required this.style,
+    required this.style, 
+    required this.scrollController,
   });
 
   final CodeController codeController;
   final GutterStyle style;
+  final ScrollController? scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -68,14 +70,17 @@ class GutterWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 12, bottom: 12, right: style.margin),
       width: style.showLineNumbers ? gutterWidth : null,
-      child: Table(
-        columnWidths: {
-          _lineNumberColumn: const FlexColumnWidth(),
-          _issueColumn: FixedColumnWidth(issueColumnWidth),
-          _foldingColumn: FixedColumnWidth(foldingColumnWidth),
-        },
-        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-        children: tableRows,
+      child: SingleChildScrollView(
+        controller: scrollController,
+        child: Table(
+          columnWidths: {
+            _lineNumberColumn: const FlexColumnWidth(),
+            _issueColumn: FixedColumnWidth(issueColumnWidth),
+            _foldingColumn: FixedColumnWidth(foldingColumnWidth),
+          },
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          children: tableRows,
+        ),
       ),
     );
   }
