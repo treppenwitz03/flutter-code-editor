@@ -71,6 +71,7 @@ class GutterWidget extends StatelessWidget {
       padding: EdgeInsets.only(top: 12, bottom: 12, right: style.margin),
       width: style.showLineNumbers ? gutterWidth : null,
       child: Visibility(
+        visible: false,
         child:Scrollbar(
           controller: scrollController,
           child: SingleChildScrollView(
