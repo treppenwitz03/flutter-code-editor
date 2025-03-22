@@ -376,13 +376,6 @@ class _CodeFieldState extends State<CodeField> {
       ),
       scrollDirection: Axis.horizontal,
       controller: _horizontalCodeScroll,
-      // child: Row(
-      //   crossAxisAlignment: CrossAxisAlignment.start,
-      //   children: [
-      //     _buildGutter(),
-      //     Expanded(child: intrinsic),
-      //   ],
-      // ),
       child: intrinsic,
     );
   }
@@ -436,6 +429,7 @@ class _CodeFieldState extends State<CodeField> {
     final editingField = Theme(
       data: Theme.of(context).copyWith(
         textSelectionTheme: widget.textSelectionTheme,
+        highlightColor: const Color(0xFF45ff90),
       ),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -453,7 +447,6 @@ class _CodeFieldState extends State<CodeField> {
         color: _backgroundCol,
         key: _codeFieldKey,
         padding: const EdgeInsets.only(left: 8),
-        // child: editingField,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
