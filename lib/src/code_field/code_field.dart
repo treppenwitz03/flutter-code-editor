@@ -376,14 +376,14 @@ class _CodeFieldState extends State<CodeField> {
       ),
       scrollDirection: Axis.horizontal,
       controller: _horizontalCodeScroll,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildGutter(),
-          Expanded(child: intrinsic),
-        ],
-      ),
-      // child: intrinsic,
+      // child: Row(
+      //   crossAxisAlignment: CrossAxisAlignment.start,
+      //   children: [
+      //     _buildGutter(),
+      //     Expanded(child: intrinsic),
+      //   ],
+      // ),
+      child: intrinsic,
     );
   }
 
@@ -453,14 +453,14 @@ class _CodeFieldState extends State<CodeField> {
         color: _backgroundCol,
         key: _codeFieldKey,
         padding: const EdgeInsets.only(left: 8),
-        child: editingField,
-        // child: Row(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     if (widget.gutterStyle.showGutter) _buildGutter(),
-        //     Expanded(key: _editorKey, child: editingField),
-        //   ],
-        // ),
+        // child: editingField,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (widget.gutterStyle.showGutter) _buildGutter(),
+            Expanded(key: _editorKey, child: editingField),
+          ],
+        ),
       ),
     );
   }
