@@ -380,7 +380,7 @@ class _CodeFieldState extends State<CodeField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildGutter(),
-          Expanded(key: _editorKey, child: intrinsic),
+          Expanded(child: intrinsic),
         ],
       ),
       // child: intrinsic,
