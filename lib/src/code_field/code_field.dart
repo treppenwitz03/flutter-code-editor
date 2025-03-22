@@ -376,7 +376,14 @@ class _CodeFieldState extends State<CodeField> {
       ),
       scrollDirection: Axis.horizontal,
       controller: _horizontalCodeScroll,
-      child: intrinsic,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildGutter(),
+          Expanded(key: _editorKey, child: intrinsic),
+        ],
+      ),
+      // child: intrinsic,
     );
   }
 
