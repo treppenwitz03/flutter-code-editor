@@ -409,32 +409,28 @@ class _CodeFieldState extends State<CodeField> {
 
     textStyle = defaultTextStyle.merge(widget.textStyle);
 
-    final codeField = Scrollbar(
-      controller: _codeScroll,
-      thumbVisibility: true,
-      child: TextField(
-        focusNode: _focusNode,
-        scrollPadding: widget.padding,
-        style: textStyle,
-        controller: widget.controller,
-        minLines: widget.minLines,
-        maxLines: widget.maxLines,
-        expands: widget.expands,
-        scrollController: _codeScroll,
-        decoration: const InputDecoration(
-          isCollapsed: true,
-          contentPadding: EdgeInsets.symmetric(vertical: 16),
-          disabledBorder: InputBorder.none,
-          border: InputBorder.none,
-          focusedBorder: InputBorder.none,
-        ),
-        cursorColor: widget.cursorColor ?? defaultTextStyle.color,
-        autocorrect: false,
-        enableSuggestions: false,
-        enabled: widget.enabled,
-        onChanged: widget.onChanged,
-        readOnly: widget.readOnly,
+    final codeField = TextField(
+      focusNode: _focusNode,
+      scrollPadding: widget.padding,
+      style: textStyle,
+      controller: widget.controller,
+      minLines: widget.minLines,
+      maxLines: widget.maxLines,
+      expands: widget.expands,
+      scrollController: _codeScroll,
+      decoration: const InputDecoration(
+        isCollapsed: true,
+        contentPadding: EdgeInsets.symmetric(vertical: 16),
+        disabledBorder: InputBorder.none,
+        border: InputBorder.none,
+        focusedBorder: InputBorder.none,
       ),
+      cursorColor: widget.cursorColor ?? defaultTextStyle.color,
+      autocorrect: false,
+      enableSuggestions: false,
+      enabled: widget.enabled,
+      onChanged: widget.onChanged,
+      readOnly: widget.readOnly,
     );
 
     final editingField = Theme(
